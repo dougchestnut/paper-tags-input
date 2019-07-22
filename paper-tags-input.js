@@ -40,8 +40,8 @@ class PaperTagsInput extends PolymerElement {
                     color: var(--disabled-text-color);
                 }
             </style>
-        
-            <paper-input label="Tags" placeholder="+tag" on-keydown="_onInputKeydown">
+
+            <paper-input label="[[label]]" placeholder="[[placeholder]]" on-keydown="_onInputKeydown">
                 <div slot="prefix">
                     <template is="dom-repeat" items="[[tags]]">
                         <paper-chip selectable="">[[item]] <iron-icon icon="icons:cancel" on-click="_onTagRemoveClicked"></iron-icon></paper-chip>
@@ -58,6 +58,14 @@ class PaperTagsInput extends PolymerElement {
                 type: Array,
                 notify: true,
                 value: function() { return []; }
+            },
+            placeholder: {
+                type: String,
+                value: "+tag"
+            },
+            label: {
+                type: String,
+                value: "Tags"
             }
         };
     }
@@ -66,7 +74,7 @@ class PaperTagsInput extends PolymerElement {
         if (this.tags === null) {
             this.tags = [];
         }
-        
+
         var trimmedTag = tag.replace(/^\s+/, '').replace(/\s+$/, '');
         if (trimmedTag !== '') {
             var tagIndex = this.tags.indexOf(trimmedTag);
