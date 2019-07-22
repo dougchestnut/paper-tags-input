@@ -1,6 +1,6 @@
 {
   "description": "Material Design input control for a collection of tags",
-  "name": "dougchestnut/paper-tags-input",
+  "name": "paper-tags-input",
   "version": "3.1.0",
   "license": "MIT",
   "repository": "github:dougchestnut/paper-tags-input",
