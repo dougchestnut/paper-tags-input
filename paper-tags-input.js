@@ -82,6 +82,7 @@ class PaperTagsInput extends PolymerElement {
                 this.push('tags', trimmedTag);
             }
         }
+        this.dispatchEvent(new CustomEvent('tagadd', {detail: this.tags));
     }
     removeTag(tag) {
         if (this.tags === null) {
@@ -91,6 +92,7 @@ class PaperTagsInput extends PolymerElement {
         if (tagIndex > -1) {
             this.splice('tags', tagIndex, 1);
         }
+        this.dispatchEvent(new CustomEvent('tagremove', {detail: this.tags));
     }
 
     _onTagRemoveClicked(e) {
